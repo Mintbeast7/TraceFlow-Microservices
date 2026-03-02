@@ -1,0 +1,14 @@
+server:
+  port: 8097
+  error:
+    include-message: always   # 👈 add this
+
+spring:
+  application:
+    name: order-service
+
+  profiles:
+    active: dev   # 🔥 Activate dev profile
+
+  config:
+    import: optional:configserver:http://localhost:8877

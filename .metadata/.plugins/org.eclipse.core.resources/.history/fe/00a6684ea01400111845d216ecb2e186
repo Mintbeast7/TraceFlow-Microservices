@@ -1,0 +1,11 @@
+package com.commerce.dto;
+
+public class OrderRequest {
+
+	private Long userId;
+	private Long productId;
+	private Integer quantity;
+	private Double price;
+	private String paymentMode;
+	private String orderStatus;
+}

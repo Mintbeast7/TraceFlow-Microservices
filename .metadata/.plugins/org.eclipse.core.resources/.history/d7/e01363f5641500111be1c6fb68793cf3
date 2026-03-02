@@ -1,0 +1,18 @@
+package com.commerce.productclient;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.commerce.FeignConfig.TracingFeignConfig;
+import com.commerce.dto.ProductResponse;
+
+@FeignClient(name = "product-service", configuration = TracingFeignConfig.class)
+public interface ProductClient {
+
+    @GetMapping("/products/{id}")
+    ProductResponse getProductById(@PathVariable("id") Long id);
+}
+
+
+//This code lets Order Service call Product Service’s /products/{id} API and receive product data as a ProductResponse object.

@@ -1,0 +1,6 @@
+package com.commerce.dto;
+
+@ent
+public class OrderEntity {
+
+}

@@ -1,0 +1,7 @@
+package com.commerce.productclient;
+
+@FeignClient
+public interface ProductClient {
+
+	
+}

@@ -1,0 +1,15 @@
+server:
+  port: 8877
+
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Mintbeast7/Centralize-Config-Server.git
+          default-label: main
+          clone-on-start: true
+          search-paths: TraceFlow-Microservices

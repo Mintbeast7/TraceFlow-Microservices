@@ -1,0 +1,23 @@
+package com.commerce.controller;
+
+import com.commerce.service.OrderService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import com.commerce.dto.OrderRequest;
+
+@RestController
+@RequestMapping("/orders")
+public class OrderController {
+
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
+
+    @PostMapping("/place")
+    public ResponseEntity<String> placeOrder(@RequestBody OrderRequest request) {
+        orderService.placeOrder(request);
+        return ResponseEntity.ok("Order placed successfully");
+    }
+}

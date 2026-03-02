@@ -1,0 +1,16 @@
+package com.commerce.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class OrderEntity {
+
+	private Long userId;
+	private Long productId;
+	private Integer quantity;
+	private Double price;
+	private String paymentMode;
+	private String orderStatus;
+	
+	
+}

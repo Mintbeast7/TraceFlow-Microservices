@@ -1,0 +1,30 @@
+server:
+  port: 8097
+  error:
+    include-message: always   # show error message in response
+
+spring:
+  application:
+    name: order-service
+
+  profiles:
+    active: dev
+
+  config:
+    import: optional:configserver:http://localhost:8877
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0   # send 100% traces to Zipkin
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"

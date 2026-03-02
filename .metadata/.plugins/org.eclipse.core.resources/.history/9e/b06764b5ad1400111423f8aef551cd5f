@@ -1,0 +1,11 @@
+package com.commerce.productclient;
+
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient
+public interface ProductClient {
+
+	@GetMapping()
+	ProductResponse getProductById();
+	
+}

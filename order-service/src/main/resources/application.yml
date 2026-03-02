@@ -1,0 +1,15 @@
+
+server:
+  port: 8097
+  error:
+    include-message: always   # show error message in response
+
+spring:
+  application:
+    name: order-service
+
+  profiles:
+    active: dev
+
+  config:
+    import: optional:configserver:http://localhost:8877

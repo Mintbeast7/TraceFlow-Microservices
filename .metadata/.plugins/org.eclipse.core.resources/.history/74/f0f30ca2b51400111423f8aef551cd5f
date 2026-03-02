@@ -1,0 +1,41 @@
+package com.commerce.service;
+
+import org.springframework.stereotype.Service;
+
+import com.commerce.dto.OrderRequest;
+import com.commerce.dto.ProductResponse;
+import com.commerce.entity.OrderEntity;
+import com.commerce.productclient.ProductClient;
+import com.commerce.repository.OrderRepository;
+
+@Service
+public class OrderService {
+
+	private final OrderRepository orderRepository;
+	private final ProductClient productClient;
+
+	public OrderService(OrderRepository orderRepository, ProductClient productClient) {
+		this.orderRepository = orderRepository;
+		this.productClient = productClient;
+	}
+
+	public void placeOrder(OrderRequest request) {
+
+		// 1️ Call Product Service using Feign
+		ProductResponse product = productClient.getProductById(request.getProductId());
+
+		// 2️ Create Order Entity
+		OrderEntity order = new OrderEntity();
+		order.setUserId(request.getUserId());
+		order.setProductId(request.getProductId());
+		order.setQuantity(request.getQuantity());
+		order.setPaymentMode(request.getPaymentMode());
+
+		// 3️ Set controlled fields
+		order.setPrice(product.getPrice());
+		order.setOrderStatus("CREATED");
+
+		// 4️ Save
+		orderRepository.save(order);
+	}
+}

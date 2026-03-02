@@ -1,0 +1,7 @@
+package com.commerce.productclient;
+
+import jakarta.persistence.Entity;
+
+public class ProductClient {
+
+}
