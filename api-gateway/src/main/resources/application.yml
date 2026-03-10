@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: ApiGatewayApplication
+    name: api-gateway
 
   profiles:
     active: dev
