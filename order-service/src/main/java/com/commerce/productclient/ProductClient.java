@@ -19,12 +19,14 @@ public interface ProductClient {
 	// fallback method
 	default ProductResponse productFallback(Long id, Exception e) {
 
-		ProductResponse response = new ProductResponse();
-		response.setProductId(id);
-		response.setProductName("Product service is currently unavailable. Please try again later.");
-		response.setPrice(0.0);
+//		ProductResponse response = new ProductResponse();
+//		response.setProductId(id);
+//		response.setProductName("Product service is currently unavailable. Please try again later.");
+//		response.setPrice(0.0);
+		
+		throw new RuntimeException("Inside fallbackmethod");
 
-		return response;
+//		return null;
 	}
 }
 
