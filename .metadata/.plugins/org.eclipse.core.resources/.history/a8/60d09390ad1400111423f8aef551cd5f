@@ -1,5 +1,0 @@
-package com.commerce.productclient;
-
-public interface ProductClient {
-
-}

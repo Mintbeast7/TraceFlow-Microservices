@@ -1,0 +1,14 @@
+server:
+  port: 8091
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: ApiGatewayApplication
+
+  profiles:
+    active: dev
+
+  config:
+    import: optional:configserver:http://localhost:8877
